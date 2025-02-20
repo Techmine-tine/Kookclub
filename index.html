@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kookclub Thema Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f8f8f8;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #cc5500;
+        }
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        #image {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Kookclub Thema Picker</h1>
+    <button onclick="pickTheme()">Wat wordt het?</button>
+    <button onclick="resetTheme()">Opnieuw</button>
+    <p id="result"></p>
+    <img id="image" src="" alt="" style="display: none;"/>
+
+    <script>
+        const themes = [
+            {text: "Italiaanse keuken: Pasta, pizza, en klassieke Italiaanse smaken.", image: "italian.jpg"},
+            {text: "Thais koken: Pittig, zoet en zuur in gerechten zoals curry's en noedels.", image: "thai.jpg"},
+            {text: "Mexicaanse smaken: Taco’s, burrito’s en authentieke salsa’s.", image: "mexican.jpg"},
+            {text: "Veganistisch koken: Heerlijke plantaardige recepten voor iedereen.", image: "vegan.jpg"},
+            {text: "BBQ & Grill: Gegrilde gerechten, marinades en bijgerechten.", image: "bbq.jpg"},
+            {text: "Mediterrane keuken: Gezonde, verse gerechten uit de regio rond de Middellandse Zee.", image: "mediterranean.jpg"},
+            {text: "Streetfood: Kleine hapjes geïnspireerd op foodtrucks en markten.", image: "streetfood.jpg"},
+            {text: "Desserts en zoetigheden: Creatieve en smaakvolle nagerechten.", image: "desserts.jpg"},
+            {text: "Italiaans – Pasta, pizza en tiramisu", image: "italian2.jpg"},
+            {text: "Frans – Boeuf bourguignon, quiche, crêpes", image: "french.jpg"},
+            {text: "Mexicaans – Taco’s, enchiladas, guacamole", image: "mexican2.jpg"},
+            {text: "Japans – Sushi, ramen, tempura", image: "japanese.jpg"},
+            {text: "Thais – Curry, pad thai, mango sticky rice", image: "thai2.jpg"},
+            {text: "Midden-Oosters – Hummus, falafel, kebab", image: "middleeastern.jpg"},
+            {text: "Scandinavisch – Gravlax, knäckebröd, köttbullar", image: "scandinavian.jpg"},
+            {text: "Alles uit één pan", image: "onepan.jpg"},
+            {text: "Vegan of Vegetarisch", image: "vegan2.jpg"},
+            {text: "Lokaal & seizoensgebonden", image: "local.jpg"}
+        ];
+
+        function pickTheme() {
+            const randomIndex = Math.floor(Math.random() * themes.length);
+            const selectedTheme = themes[randomIndex];
+            document.getElementById("result").textContent = selectedTheme.text;
+            document.getElementById("image").src = selectedTheme.image;
+            document.getElementById("image").style.display = "block";
+        }
+
+        function resetTheme() {
+            document.getElementById("result").textContent = "";
+            document.getElementById("image").style.display = "none";
+        }
+    </script>
+</body>
+</html>
